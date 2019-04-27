@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.mapper.VideosMapperCustom" >
+
+	<select id="selectAllVideos" resultType="com.test.pojo.vo.VideoVo">
+	
+		SELECT
+			v.id AS id,
+			u.username AS username,
+			v.video_desc AS videoDesc,
+			v.video_path AS videoPath,
+			v.like_counts AS likeCounts,
+			v.`status` AS STATUS,
+			v.create_time AS createTime
+		FROM
+			videos v
+			LEFT JOIN users u ON v.user_id = u.id
+		
+	
+	</select>
+  
+</mapper>
